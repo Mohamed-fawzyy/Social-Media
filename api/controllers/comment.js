@@ -4,11 +4,9 @@ import moment from "moment"
 
 export const getComments = (req, res) => {
 
-    const q = `SELECT c.*, name, profilePic 
+    const q = `SELECT c.*, u.id AS userId, name, profilePic 
     FROM comments AS c JOIN users AS u 
-    ON (u.id = c.userId) JOIN relationships AS r 
-    ON (c.userId = r.followedUserId) 
-    where r.followerUserId = ? or c.userId = ?
+    ON (u.id = c.userId) where c.postId = ?
     ORDER BY c.createdAt DESC;`;
 
     db.query(q, [req.query.postId], (err, data) => {
@@ -37,7 +35,7 @@ export const addComment = (req, res) => {
 
         db.query(q, [values], (err, data) => {
             if (err) return res.status(500).json("comment action canceld : " + err);
-            return res.status(200).json("comment added successfully", data)
+            return res.status(200).json("comment added successfully" + data)
         });
     });
 }

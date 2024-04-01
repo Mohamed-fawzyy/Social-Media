@@ -27,13 +27,13 @@ const Comments = (postId) => {
       // Invalidate and refetch(refresh)
       queryClient.invalidateQueries({ queryKey: ['comments'] })
     },
-  })
+  });
 
   const handleClick = async (e, res) => {
     e.preventDefault()
 
     try {
-      mutation.mutate({ desc, postId:postId['postId'] })
+      mutation.mutate({ desc, postId: postId['postId'] })
       setDesc("")
 
     } catch (error) {
@@ -43,25 +43,29 @@ const Comments = (postId) => {
 
   return (
     <div className="comments">
+      <div id="dl">
+      </div>
       <div className="write">
-        <img src={currentUser.profilePic} alt="" />
-        <input type="text" placeholder="write a comment" value={desc} onChange={e => { setDesc(e.target.value) }}
+        <img src={"../upload/" + currentUser.profilePic} alt="comentPic" />
+        <input type="text" placeholder="write a comment" value={desc}
+          onChange={e => { setDesc(e.target.value) }}
         />
         <button onClick={handleClick}>Send</button>
       </div>
       {error ? "Something went wrong in loading comments!"
         : (isLoading ? "Loading comments..." : data.map((comment) => (
           <div className="comment" key={comment.id}>
-            <img src={comment.profilePic} alt="" />
+            <img src={"../upload/" + currentUser.profilePic} alt="" />
             <div className="info">
               <span>{comment.name}</span>
               <p>{comment.desc}</p>
             </div>
             <span className="date">{moment(comment.createdAt).fromNow()}</span>
           </div>
-        )))}
+        ),))}
+
     </div>
-  );
+  )
 };
 
 export default Comments;

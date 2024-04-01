@@ -3,6 +3,7 @@ import express from "express";
 import userRoutes from "./routes/users.js"
 import authRoutes from "./routes/auth.js"
 import likeRoutes from "./routes/likes.js"
+import relationshipsRoutes from "./routes/relationships.js"
 import commentRoutes from "./routes/comments.js"
 import postRoutes from "./routes/posts.js"
 import cors from "cors"
@@ -27,7 +28,7 @@ app.use("/api/likes", likeRoutes)
 app.use("/api/comments", commentRoutes)
 app.use("/api/posts", postRoutes)
 app.use("/api/auth", authRoutes)
-app.use("/api/statistcs", authRoutes)
+app.use("/api/relationships", relationshipsRoutes)
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {

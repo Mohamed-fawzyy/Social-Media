@@ -13,6 +13,7 @@ const Share = () => {
   const queryClient = useQueryClient();
   const [file, setFile] = useState(null)
   const [desc, setDesc] = useState("")
+  const { currentUser } = useContext(AuthContext)
 
   const upload = async () => {
     try {
@@ -51,19 +52,14 @@ const Share = () => {
     }
   }
 
-  const { currentUser } = useContext(AuthContext)
   return (
     <div className="share">
       <div className="container">
         <div className="top">
           <div className="left">
-
-            <img
-              src={currentUser.profilePic}
-              alt=""
-            />
+            <img src={"../upload/" + currentUser.profilePic} alt="" />
             <input type="text" placeholder={`What's on your mind ${currentUser.name}?`}
-              onChange={e => setDesc(e.target.value)} value={desc}/>
+              onChange={e => setDesc(e.target.value)} value={desc} />
           </div>
           <div className="right">
             {file && <img className="file" src={URL.createObjectURL(file)} alt="img u selected" ur></img>}
