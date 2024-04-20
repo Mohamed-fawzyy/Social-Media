@@ -36,7 +36,10 @@ This project introduces a full-stack social media application designed to provid
 ![erd](https://github.com/Mohamed-fawzyy/Social-Media/assets/111665714/24b55043-d37e-475c-a47a-ae98eb976419)
 
 # SnapShots 🎥
+- Visit this [link](https://www.linkedin.com/posts/mohamed-fawzy-936b661b8_softwareengineering-dataengineering-backend-activity-7187442024617283585-0pNh?utm_source=share&utm_medium=member_desktop) to take a quick walkthrough with me through the app to grasp its concept. I'm sure you'll find it intriguing! 💡
 
+video link
+  
 
 # Contributing 📝
 Contributions are welcome! Please open an issue or pull request for any changes or improvements.
